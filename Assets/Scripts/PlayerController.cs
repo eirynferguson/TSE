@@ -45,7 +45,7 @@ public class PlayerController : MonoBehaviour
         {
             rbody.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationZ;
             transform.position += (mainCamera.transform.forward * InputVector.y * objectSpeed * Time.fixedDeltaTime) + (mainCamera.transform.right * InputVector.x * objectSpeed * Time.fixedDeltaTime);
-            transform.position = new Vector3(transform.position.x, 3.8f, transform.position.z);
+            transform.position = new Vector3(transform.position.x, 1.0f, transform.position.z);
         }
 
         float mouseX = Input.GetAxisRaw("Mouse X") * Time.fixedDeltaTime * sensX;
