@@ -608,6 +608,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 907e9af44f3bed3429f8d136090f102b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  objectSpeed: 7
+  mouseSensitivity: 2
+  mainCamera: {fileID: 880584640}
 --- !u!1 &880584638
 GameObject:
   m_ObjectHideFlags: 0
