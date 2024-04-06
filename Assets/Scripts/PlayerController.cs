@@ -61,20 +61,19 @@ public class PlayerController : MonoBehaviour
         mainCamera.transform.rotation = Quaternion.Euler(xRotation, yRotation, 0);
     }
 
-    public GameObject getTargetObject()
+    /*public GameObject getTargetObject()
     {
         return targetObject();
-    }
+    }*/
 
     void cameraRay()  //item interaction
     {
-        int layerMask = 1 << LayerMask.NameToLayer("Interactable");
+        int layerMask = 1 << LayerMask.NameToLayer("RayCast");
 
-        RaycastHit hit;
         Ray ray = mainCamera.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0));  //middle of screen
-        Debug.DrawRay(ray.origin, ray.direction * 6, Color.red);
+        Debug.DrawRay(ray.origin, ray.direction * 10, Color.red);
 
-        if(Physics.RayCast(ray, out hit, 6, layerMask))
+        if(Physics.Raycast(ray, out RaycastHit hit, 10, layerMask))
         {
             targetObject = GameObject.Find(hit.collider.transform.parent.gameObject.name);
         }
