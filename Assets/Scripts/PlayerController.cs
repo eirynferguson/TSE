@@ -7,6 +7,7 @@ public class PlayerController : MonoBehaviour
 {
     public float objectSpeed = 7;
     public float mouseSensitivity = 2.0f;
+    public GameObject targetObject;
     public Camera mainCamera;
 
     Rigidbody rbody;
@@ -31,7 +32,7 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        cameraRay();
     }
 
     void FixedUpdate()
@@ -58,5 +59,28 @@ public class PlayerController : MonoBehaviour
 
         transform.rotation = Quaternion.Euler(0, xRotation, 0);
         mainCamera.transform.rotation = Quaternion.Euler(xRotation, yRotation, 0);
+    }
+
+    public GameObject getTargetObject()
+    {
+        return targetObject();
+    }
+
+    void cameraRay()  //item interaction
+    {
+        int layerMask = 1 << LayerMask.NameToLayer("Interactable");
+
+        RaycastHit hit;
+        Ray ray = mainCamera.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0));  //middle of screen
+        Debug.DrawRay(ray.origin, ray.direction * 6, Color.red);
+
+        if(Physics.RayCast(ray, out hit, 6, layerMask))
+        {
+            targetObject = GameObject.Find(hit.collider.transform.parent.gameObject.name);
+        }
+        else
+        {
+            targetObject = null;
+        }
     }
 }
