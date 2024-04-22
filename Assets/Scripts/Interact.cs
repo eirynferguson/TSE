@@ -8,6 +8,8 @@ public class Interact : MonoBehaviour
     public GameObject player;
     PlayerController playerScript;
 
+    public string itemName;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -16,6 +18,8 @@ public class Interact : MonoBehaviour
             player = GameObject.Find("Player");
             playerScript = player.GetComponent<PlayerController>();
         }
+
+        itemName = gameObject.name;
     }
 
     // Update is called once per frame

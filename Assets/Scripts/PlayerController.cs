@@ -72,6 +72,11 @@ public class PlayerController : MonoBehaviour
         mousePosition = mousePos.Get<Vector2>();
     }
 
+    public GameObject getTargetObject()
+    {
+        return targetObject;
+    }
+
     public void OnClickItem()
     {
         if (targetObject != null) 
