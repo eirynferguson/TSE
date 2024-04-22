@@ -27,6 +27,7 @@ public class PlayerController : MonoBehaviour
         myAction.Enable();
         mainCamera = GetComponentInChildren<Camera>();
         rbody.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationZ;
+        Cursor.lockState = CursorLockMode.Locked;
     }
 
     // Update is called once per frame
@@ -61,14 +62,30 @@ public class PlayerController : MonoBehaviour
         mainCamera.transform.rotation = Quaternion.Euler(xRotation, yRotation, 0);
     }
 
-    /*public GameObject getTargetObject()
+    public Vector2 GetMousePosition()
     {
-        return targetObject();
-    }*/
+        return mousePosition;
+    }
+
+    public void OnMouse(InputValue mousePos)
+    {
+        mousePosition = mousePos.Get<Vector2>();
+    }
+
+    public void OnClickItem()
+    {
+        if (targetObject != null) 
+        { 
+            if (targetObject.name.Contains("Door"))
+            {
+                targetObject.transform.Find("Door").SendMessage("OnInteract");
+            }
+        }
+    }
 
     void cameraRay()  //item interaction
     {
-        int layerMask = 1 << LayerMask.NameToLayer("RayCast");
+        int layerMask = 1 << LayerMask.NameToLayer("Interactable");
 
         Ray ray = mainCamera.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0));  //middle of screen
         Debug.DrawRay(ray.origin, ray.direction * 10, Color.red);
