@@ -20,6 +20,7 @@ public class Interact : MonoBehaviour
         }
 
         itemName = gameObject.name;
+        gameObject.layer = LayerMask.NameToLayer("Interactable");
     }
 
     // Update is called once per frame

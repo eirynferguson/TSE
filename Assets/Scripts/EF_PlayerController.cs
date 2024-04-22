@@ -7,9 +7,9 @@ public class PlayerController : MonoBehaviour
 {
     public float objectSpeed = 7;
     public float mouseSensitivity = 2.0f;
-    public GameObject targetObject;
     public Camera mainCamera;
 
+    GameObject targetObject;
     Rigidbody rbody;
     InputAction myAction;
     Vector2 mousePosition;
@@ -86,6 +86,8 @@ public class PlayerController : MonoBehaviour
                 targetObject.transform.Find("Door").SendMessage("OnInteract");
             }
         }
+
+        Debug.Log("Item Clicked");
     }
 
     void cameraRay()  //item interaction

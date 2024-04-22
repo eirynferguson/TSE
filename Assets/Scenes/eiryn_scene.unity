@@ -336,9 +336,9 @@ GameObject:
   - component: {fileID: 286560739}
   - component: {fileID: 286560738}
   - component: {fileID: 286560742}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Door
-  m_TagString: Interactable
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -442,6 +442,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 0}
+  itemName: 
 --- !u!1 &706471912
 GameObject:
   m_ObjectHideFlags: 0
