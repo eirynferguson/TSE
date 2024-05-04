@@ -25,5 +25,6 @@ public class SceneChanger : MonoBehaviour
     public void Exit()
     {
         Application.Quit();
+        Debug.Log("Quit");
     }
 }
