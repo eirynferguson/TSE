@@ -46,7 +46,9 @@ public class PauseScript : MonoBehaviour
 
         buttons.SetActive(true);
         pauseUI.SetActive(true);
+        controlButton.SetActive(false);
         Time.timeScale = 0f;
+        controlsShown = false;
         isPaused = true;
     }
 
