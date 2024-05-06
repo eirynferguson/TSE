@@ -19,6 +19,8 @@ public class PlayerController : MonoBehaviour
     float xRotation;
     float yRotation;
 
+    //Interact interactScript;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -83,7 +85,9 @@ public class PlayerController : MonoBehaviour
         { 
             if (targetObject.name.Contains("Door"))
             {
-                targetObject.transform.Find("Door").SendMessage("OnInteract");
+                targetObject.SendMessage("OnInteract");
+                //interactScript.OnInteract();
+
             }
         }
 

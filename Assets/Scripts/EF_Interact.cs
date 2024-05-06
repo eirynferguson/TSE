@@ -34,7 +34,7 @@ public class Interact : MonoBehaviour
         this.gameObject.SetActive(false);
     }
 
-    void OnInteract()
+    public void OnInteract()
     {
         Debug.Log("Interact");
 
