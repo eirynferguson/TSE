@@ -15,7 +15,7 @@ public class Interact : MonoBehaviour
     {
         if(GameObject.Find("Player") != null)
         {
-            player = GameObject.Find("Player");
+            player = GameObject.FindGameObjectWithTag("Player"); 
             playerScript = player.GetComponent<PlayerController>();
         }
 
@@ -36,6 +36,8 @@ public class Interact : MonoBehaviour
 
     void OnInteract()
     {
+        Debug.Log("Interact");
+
         if(name == "Door")
         {
             RemoveObject();
