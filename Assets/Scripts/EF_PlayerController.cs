@@ -7,9 +7,9 @@ public class PlayerController : MonoBehaviour
 {
     public float objectSpeed = 7;
     public float mouseSensitivity = 2.0f;
-    public GameObject targetObject;
     public Camera mainCamera;
 
+    GameObject targetObject;
     Rigidbody rbody;
     InputAction myAction;
     Vector2 mousePosition;
@@ -27,7 +27,6 @@ public class PlayerController : MonoBehaviour
         myAction.Enable();
         mainCamera = GetComponentInChildren<Camera>();
         rbody.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationZ;
-
         Cursor.lockState = CursorLockMode.Locked;
     }
 
@@ -63,21 +62,45 @@ public class PlayerController : MonoBehaviour
         mainCamera.transform.rotation = Quaternion.Euler(xRotation, yRotation, 0);
     }
 
-    /*public GameObject getTargetObject()
+    public Vector2 GetMousePosition()
     {
-        return targetObject();
-    }*/
+        return mousePosition;
+    }
+
+    public void OnMouse(InputValue mousePos)
+    {
+        mousePosition = mousePos.Get<Vector2>();
+    }
+
+    public GameObject getTargetObject()
+    {
+        return targetObject;
+    }
+
+    public void OnClickItem()
+    {
+        if (targetObject != null) 
+        { 
+            if (targetObject.name.Contains("Door"))
+            {
+                targetObject.SendMessage("OnInteract");
+
+            }
+        }
+
+        Debug.Log("Item Clicked");
+    }
 
     void cameraRay()  //item interaction
     {
-        int layerMask = 1 << LayerMask.NameToLayer("RayCast");
+        int layerMask = 1 << LayerMask.NameToLayer("Interactable");
 
         Ray ray = mainCamera.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0));  //middle of screen
         Debug.DrawRay(ray.origin, ray.direction * 10, Color.red);
 
         if(Physics.Raycast(ray, out RaycastHit hit, 10, layerMask))
         {
-            targetObject = GameObject.Find(hit.collider.transform.parent.gameObject.name);
+            targetObject = GameObject.Find(hit.collider.transform.gameObject.name);
         }
         else
         {
