@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class EF_MannequinControls : MonoBehaviour
 {
-    public GameObject Head;
+    //public GameObject Head;
     public GameObject target;
 
     // Start is called before the first frame update
@@ -16,6 +16,7 @@ public class EF_MannequinControls : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.LookAt(target.transform.position);
+        var rotation = Quaternion.LookRotation(target.transform.position - transform.position);
+        transform.rotation = Quaternion.Slerp(transform.rotation, rotation, Time.deltaTime * 0.5f);
     }
 }

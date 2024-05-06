@@ -136,7 +136,7 @@ GameObject:
   - component: {fileID: 69935747}
   - component: {fileID: 69935746}
   m_Layer: 0
-  m_Name: Body
+  m_Name: Mannequin
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -150,12 +150,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 69935744}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -9, y: 6.8, z: -10}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -6.261757, y: 0.8084378, z: 2.6608496}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 302542992}
+  m_Children:
+  - {fileID: 792425345}
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!136 &69935746
 CapsuleCollider:
@@ -550,54 +551,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 860665262}
   itemName: Door
---- !u!1 &302542991
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 302542992}
-  - component: {fileID: 302542993}
-  m_Layer: 0
-  m_Name: Mannequin
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &302542992
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 302542991}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.738243, y: -5.9915624, z: 12.66085}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 69935745}
-  - {fileID: 792425345}
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &302542993
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 302542991}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0f60aae39f6ca0847801b9864caecb05, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Head: {fileID: 792425344}
-  target: {fileID: 860665262}
 --- !u!1 &706471912
 GameObject:
   m_ObjectHideFlags: 0
@@ -715,6 +668,7 @@ GameObject:
   - component: {fileID: 792425348}
   - component: {fileID: 792425347}
   - component: {fileID: 792425346}
+  - component: {fileID: 792425349}
   m_Layer: 0
   m_Name: Head
   m_TagString: Untagged
@@ -730,13 +684,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 792425344}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -9, y: 8, z: -10}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 1.1999998, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1217379679}
-  m_Father: {fileID: 302542992}
+  m_Father: {fileID: 69935745}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!135 &792425346
 SphereCollider:
@@ -809,6 +763,19 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 792425344}
   m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &792425349
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 792425344}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0f60aae39f6ca0847801b9864caecb05, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {fileID: 860665262}
 --- !u!1 &860665262
 GameObject:
   m_ObjectHideFlags: 0
@@ -1161,7 +1128,7 @@ Transform:
   m_GameObject: {fileID: 1217379678}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.32400036, y: 0.09399986, z: 0}
+  m_LocalPosition: {x: 0, y: 0.1, z: 0.4}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1561,4 +1528,4 @@ SceneRoots:
   - {fileID: 1091029450}
   - {fileID: 860665266}
   - {fileID: 286560741}
-  - {fileID: 302542992}
+  - {fileID: 69935745}
