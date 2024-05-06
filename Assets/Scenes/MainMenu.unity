@@ -440,6 +440,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3366751a529aaa943a079c62f9cdd5b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  control: {fileID: 1812244471}
 --- !u!1 &517694656
 GameObject:
   m_ObjectHideFlags: 0
@@ -1192,9 +1193,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: PauseScript, Assembly-CSharp
-        m_MethodName: PauseGame
+      - m_Target: {fileID: 417644986}
+        m_TargetAssemblyTypeName: EF_TitleScript, Assembly-CSharp
+        m_MethodName: back
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2249,7 +2250,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1983293148}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 417644986}
+        m_TargetAssemblyTypeName: EF_TitleScript, Assembly-CSharp
+        m_MethodName: controls
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1983293148
 MonoBehaviour:
   m_ObjectHideFlags: 0
