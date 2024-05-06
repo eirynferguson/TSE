@@ -8,14 +8,18 @@ public class PauseScript : MonoBehaviour
 {
     public GameObject buttons;
     public GameObject pauseUI;
+    public GameObject controlButton;
     public static bool isPaused = false;
+    public static bool controlsShown = false;
     
     // Start is called before the first frame update
     void Start()
     {
+        controlsShown = false;
         isPaused = false;
         ResumeGame();
         buttons.SetActive(false);
+        controlButton.SetActive(false);
     }
 
     // Update is called once per frame
@@ -56,6 +60,13 @@ public class PauseScript : MonoBehaviour
         pauseUI.SetActive(false);
         Time.timeScale = 1f;
         isPaused = false;
+    }
+
+    public void controls()
+    {
+        controlButton.SetActive(true);
+        Time.timeScale = 0f;
+        controlsShown = true;
     }
 
     public void mainMenu()
