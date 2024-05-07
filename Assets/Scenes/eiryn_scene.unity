@@ -710,7 +710,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 318849377}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -720,12 +720,12 @@ RectTransform:
   - {fileID: 53243046}
   - {fileID: 1519258140}
   - {fileID: 1294852265}
-  m_Father: {fileID: 1650674712}
+  m_Father: {fileID: 543105571}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -25}
-  m_SizeDelta: {x: -700, y: -250}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &318849379
 MonoBehaviour:
@@ -848,7 +848,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1650674713}
+      - m_Target: {fileID: 1650674717}
         m_TargetAssemblyTypeName: PauseScript, Assembly-CSharp
         m_MethodName: controls
         m_Mode: 1
@@ -967,6 +967,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1932021473}
+  - {fileID: 318849378}
   - {fileID: 1339105503}
   m_Father: {fileID: 1650674712}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1873,7 +1874,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1650674713}
+      - m_Target: {fileID: 1650674717}
         m_TargetAssemblyTypeName: PauseScript, Assembly-CSharp
         m_MethodName: ResumeGame
         m_Mode: 1
@@ -2415,7 +2416,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1650674713}
+      - m_Target: {fileID: 1650674717}
         m_TargetAssemblyTypeName: PauseScript, Assembly-CSharp
         m_MethodName: PauseGame
         m_Mode: 1
@@ -2859,7 +2860,8 @@ GameObject:
   - component: {fileID: 1650674716}
   - component: {fileID: 1650674715}
   - component: {fileID: 1650674714}
-  - component: {fileID: 1650674713}
+  - component: {fileID: 1650674718}
+  - component: {fileID: 1650674717}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -2881,7 +2883,6 @@ RectTransform:
   m_Children:
   - {fileID: 1909557698}
   - {fileID: 543105571}
-  - {fileID: 318849378}
   m_Father: {fileID: 609842963}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -2889,21 +2890,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
---- !u!114 &1650674713
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1650674711}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0693b4e650236e34e907f81fac9f8b55, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  buttons: {fileID: 1339105502}
-  pauseUI: {fileID: 543105568}
-  controlButton: {fileID: 318849377}
 --- !u!114 &1650674714
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2967,6 +2953,33 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
+--- !u!114 &1650674717
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1650674711}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0693b4e650236e34e907f81fac9f8b55, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  buttons: {fileID: 1339105502}
+  pauseUI: {fileID: 543105568}
+  controlButton: {fileID: 318849377}
+--- !u!225 &1650674718
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1650674711}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &1737350482
 GameObject:
   m_ObjectHideFlags: 0
@@ -3261,7 +3274,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1650674713}
+      - m_Target: {fileID: 1650674717}
         m_TargetAssemblyTypeName: PauseScript, Assembly-CSharp
         m_MethodName: mainMenu
         m_Mode: 1
