@@ -6,6 +6,14 @@ public class EF_CursorLable : MonoBehaviour
 {
     public GameObject player;
     public Camera mainCamera;
+    public Image playerView;
+    bool pointAtInteract;
+    public float viewUpdateshrpness = 5f;
+
+    RectTransform viewRectTransform;
+    PlayerViewData viewDataDefault;
+    PlayerViewData viewDataTarget;
+    PlayerViewData currentView;
     PlayerController playerScript;
     
     // Start is called before the first frame update
@@ -19,15 +27,26 @@ public class EF_CursorLable : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (playerScript.targetObject != null)
+        updateLookAtInteract(false);
+        pointAtInteract = playerScript.targetObject;
+    }
+
+    void updateLookAtInteract(bool interact)
+    {
+        if ((interact || !pointAtInteract) && playerScript.targetObject)
         {
-            GetComponent<TMPro.TextMeshProUGUI>().text = playerScript.targetObject.name;
+            currentView = viewDataTarget;
+            //CrosshairImage.sprite = m_CurrentCrosshair.CrosshairSprite;
+            viewRectTransform.sizeDelta = currentView.PlayerViewSize * Vector2.one;
         }
-        else
+        else if ((interact || pointAtInteract) && !playerScript.targetObject)
         {
-            GetComponent<TMPro.TextMeshProUGUI>().text = null;
+            currentView = viewDataDefault;
+            //CrosshairImage.sprite = m_CurrentCrosshair.CrosshairSprite;
+            viewRectTransform.sizeDelta = currentView.PlayerViewSize * Vector2.one;
         }
 
-        transform.position = playerScript.GetMousePosition();  //find mouse location
+        PlayerView.color = Color.Lerp(PlayerView.color, currentView.PlayerViewColor, Time.deltaTime * viewUpdateshrpness);
+        viewRectTransform.sizeDelta = Mathf.Lerp(viewRectTransform.sizeDelta.x, currentView.PlayerViewSize, Time.deltaTime * viewUpdateshrpness) * Vector2.one;
     }
 }
