@@ -9,7 +9,7 @@ public class EF_MannequinControls : MonoBehaviour
     public GameObject head;
     PlayerController playerScript;
     public string itemName;
-    //public bool anxietyHigh = false;
+    public bool mannequinTurn = true;
     //get anxiety script
 
     // Start is called before the first frame update
@@ -38,13 +38,21 @@ public class EF_MannequinControls : MonoBehaviour
         Debug.Log("Mannequin");
         if (itemName == "Mannequin")
         {
+            mannequinTurn = false;
             transform.rotation = Quaternion.LookRotation(head.transform.forward);
+        }
+        else 
+        {
+            mannequinTurn = true;
         }
     }
 
     void mannequinLook()
     {
-        var rotation = Quaternion.LookRotation(player.transform.position - transform.position);
-        transform.rotation = Quaternion.Slerp(transform.rotation, rotation, Time.deltaTime * 0.5f);
+        if (mannequinTurn = true)
+        {
+            var rotation = Quaternion.LookRotation(player.transform.position - transform.position);
+            transform.rotation = Quaternion.Slerp(transform.rotation, rotation, Time.deltaTime * 0.5f);
+        }
     }
 }
