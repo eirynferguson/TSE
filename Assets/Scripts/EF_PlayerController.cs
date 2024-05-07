@@ -83,7 +83,8 @@ public class PlayerController : MonoBehaviour
         { 
             if (targetObject.name.Contains("Door"))
             {
-                targetObject.transform.Find("Door").SendMessage("OnInteract");
+                targetObject.SendMessage("OnInteract");
+
             }
         }
 
@@ -99,7 +100,7 @@ public class PlayerController : MonoBehaviour
 
         if(Physics.Raycast(ray, out RaycastHit hit, 10, layerMask))
         {
-            targetObject = GameObject.Find(hit.collider.transform.parent.gameObject.name);
+            targetObject = GameObject.Find(hit.collider.transform.gameObject.name);
         }
         else
         {
