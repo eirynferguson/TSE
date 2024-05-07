@@ -1483,6 +1483,7 @@ GameObject:
   - component: {fileID: 833759572}
   - component: {fileID: 833759571}
   - component: {fileID: 833759575}
+  - component: {fileID: 833759576}
   m_Layer: 0
   m_Name: Mannequin
   m_TagString: Untagged
@@ -1596,6 +1597,33 @@ MonoBehaviour:
   staticPos: {fileID: 706471912}
   itemName: Mannequin
   mannequinTurn: 1
+--- !u!54 &833759576
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 833759570}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 94
+  m_CollisionDetection: 0
 --- !u!1 &860665262
 GameObject:
   m_ObjectHideFlags: 0
