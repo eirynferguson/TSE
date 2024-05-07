@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class EF_MannequinControls : MonoBehaviour
 {
-    //public GameObject Head;
     public GameObject target;
 
     // Start is called before the first frame update
