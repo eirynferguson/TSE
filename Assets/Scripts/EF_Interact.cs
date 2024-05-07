@@ -36,6 +36,7 @@ public class Interact : MonoBehaviour
 
     void OnInteract()
     {
+        Debug.Log("Interact");
         if(name == "Door")
         {
             RemoveObject();
