@@ -16,7 +16,18 @@ public class EF_MannequinControls : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        var rotation = Quaternion.LookRotation(target.transform.position - transform.position);
-        transform.rotation = Quaternion.Slerp(transform.rotation, rotation, Time.deltaTime * 0.5f);
+        //modified to only look at the player when the player is paranoid
+        bool PlayerPanic = target.GetComponent<anxietymeter>().Paranoid;
+        if (PlayerPanic)
+        {
+            var rotation = Quaternion.LookRotation(target.transform.position - transform.position);
+            transform.rotation = Quaternion.Slerp(transform.rotation, rotation, Time.deltaTime * 4.0f);
+        }
+        else
+        {
+            //resets if not paranoid
+            transform.rotation = new Quaternion(0, 0, 0, 0);
+        }
     }
+
 }
