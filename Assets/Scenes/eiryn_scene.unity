@@ -1482,6 +1482,7 @@ GameObject:
   - component: {fileID: 833759573}
   - component: {fileID: 833759572}
   - component: {fileID: 833759571}
+  - component: {fileID: 833759575}
   m_Layer: 0
   m_Name: Mannequin
   m_TagString: Untagged
@@ -1578,6 +1579,22 @@ Transform:
   - {fileID: 1829453826}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &833759575
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 833759570}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0f60aae39f6ca0847801b9864caecb05, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 860665262}
+  head: {fileID: 1829453825}
+  itemName: Mannequin
+  mannequinTurn: 1
 --- !u!1 &860665262
 GameObject:
   m_ObjectHideFlags: 0
@@ -1762,7 +1779,6 @@ MonoBehaviour:
   mouseSensitivity: 2
   mainCamera: {fileID: 880584640}
   targetObject: {fileID: 0}
-  mannequin: {fileID: 833759570}
 --- !u!1 &880584638
 GameObject:
   m_ObjectHideFlags: 0
@@ -3529,7 +3545,6 @@ GameObject:
   - component: {fileID: 1829453830}
   - component: {fileID: 1829453829}
   - component: {fileID: 1829453828}
-  - component: {fileID: 1829453827}
   m_Layer: 0
   m_Name: Head
   m_TagString: Untagged
@@ -3553,20 +3568,6 @@ Transform:
   - {fileID: 2131288053}
   m_Father: {fileID: 833759574}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1829453827
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1829453825}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0f60aae39f6ca0847801b9864caecb05, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  player: {fileID: 860665262}
-  itemName: Head
 --- !u!135 &1829453828
 SphereCollider:
   m_ObjectHideFlags: 0

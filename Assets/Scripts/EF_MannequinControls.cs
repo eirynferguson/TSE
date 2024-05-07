@@ -7,6 +7,7 @@ public class EF_MannequinControls : MonoBehaviour
 {
     public GameObject player;
     public GameObject head;
+    public GameObject staticPos;
     PlayerController playerScript;
     public string itemName;
     public bool mannequinTurn = true;
@@ -39,17 +40,25 @@ public class EF_MannequinControls : MonoBehaviour
         if (itemName == "Mannequin")
         {
             mannequinTurn = false;
-            transform.rotation = Quaternion.LookRotation(head.transform.forward);
+            while (mannequinTurn == false)
+            {
+                var rotation = Quaternion.LookRotation(staticPos.transform.position - transform.position);
+                transform.rotation = Quaternion.Slerp(transform.rotation, rotation, Time.deltaTime * 1.0f);
+            }
+
         }
-        else 
+        else
         {
             mannequinTurn = true;
         }
+
+
+
     }
 
     void mannequinLook()
     {
-        if (mannequinTurn = true)
+        if (mannequinTurn == true)
         {
             var rotation = Quaternion.LookRotation(player.transform.position - transform.position);
             transform.rotation = Quaternion.Slerp(transform.rotation, rotation, Time.deltaTime * 0.5f);
