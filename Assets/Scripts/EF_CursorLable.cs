@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class EF_CursorLable : MonoBehaviour
 {
-    public GameObject player;
     public Camera mainCamera;
-    public Image playerView;
+    public GameObject player;
+    public Image PlayerView;
     bool pointAtInteract;
     public float viewUpdateshrpness = 5f;
 
@@ -15,7 +15,7 @@ public class EF_CursorLable : MonoBehaviour
     PlayerViewData viewDataTarget;
     PlayerViewData currentView;
     PlayerController playerScript;
-    
+
     // Start is called before the first frame update
     void Start()
     {
