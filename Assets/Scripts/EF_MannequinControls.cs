@@ -11,6 +11,7 @@ public class EF_MannequinControls : MonoBehaviour
     PlayerController playerScript;
     public string itemName;
     public bool mannequinTurn = true;
+
     //get anxiety script
 
     // Start is called before the first frame update
@@ -34,7 +35,7 @@ public class EF_MannequinControls : MonoBehaviour
         if (mannequinTurn == true)
         {
             mannequinLook();
-        }        
+        }   
     }
 
     void staredAt()
@@ -44,16 +45,13 @@ public class EF_MannequinControls : MonoBehaviour
         {
             mannequinTurn = false;
             var rotation = Quaternion.LookRotation(staticPos.transform.position - transform.position);
-            transform.rotation = Quaternion.Slerp(transform.rotation, rotation, Time.deltaTime * 1.0f);
+            transform.rotation = Quaternion.Slerp(transform.rotation, rotation, Time.deltaTime * 2.0f);
             mannequinTurn = true;
         }
         else
         {
             mannequinTurn = true;
         }
-
-
-
     }
 
     void mannequinLook()
