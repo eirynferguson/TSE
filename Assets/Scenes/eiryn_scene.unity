@@ -1762,6 +1762,7 @@ MonoBehaviour:
   mouseSensitivity: 2
   mainCamera: {fileID: 880584640}
   targetObject: {fileID: 0}
+  mannequin: {fileID: 833759570}
 --- !u!1 &880584638
 GameObject:
   m_ObjectHideFlags: 0
@@ -3564,7 +3565,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f60aae39f6ca0847801b9864caecb05, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 860665262}
+  player: {fileID: 860665262}
+  itemName: Head
 --- !u!135 &1829453828
 SphereCollider:
   m_ObjectHideFlags: 0

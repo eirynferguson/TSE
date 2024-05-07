@@ -34,6 +34,7 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         cameraRay();
+        lookAtItem();
     }
 
     void FixedUpdate()
@@ -89,6 +90,18 @@ public class PlayerController : MonoBehaviour
         }
 
         Debug.Log("Item Clicked");
+    }
+
+    public void lookAtItem()
+    {
+        if (targetObject != null) 
+        { 
+            if (targetObject.name.Contains("Mannequin"))
+            {
+                targetObject.SendMessage("staredAt");
+                Debug.Log("Looked At");
+            }
+        }
     }
 
     void cameraRay()  //item interaction

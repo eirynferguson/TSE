@@ -29,7 +29,7 @@ public class EF_CursorLable : MonoBehaviour
             isInteract = true;
             interactable();
         }
-        else
+        else if ((name == "Head") || (playerScript.targetObject == null))
         {
             isInteract = false;
             interactable();
