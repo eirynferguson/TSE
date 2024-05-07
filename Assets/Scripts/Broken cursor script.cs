@@ -1,8 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
-public class EF_CursorLable : MonoBehaviour
+public class EF_Cursor : MonoBehaviour
 {
     public Camera mainCamera;
     public GameObject player;
