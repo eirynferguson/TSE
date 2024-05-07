@@ -8,8 +8,8 @@ public class PlayerController : MonoBehaviour
     public float objectSpeed = 7;
     public float mouseSensitivity = 2.0f;
     public Camera mainCamera;
+    public GameObject targetObject;
 
-    GameObject targetObject;
     Rigidbody rbody;
     InputAction myAction;
     Vector2 mousePosition;
@@ -27,7 +27,6 @@ public class PlayerController : MonoBehaviour
         myAction.Enable();
         mainCamera = GetComponentInChildren<Camera>();
         rbody.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationZ;
-        Cursor.lockState = CursorLockMode.Locked;
     }
 
     // Update is called once per frame
@@ -84,7 +83,6 @@ public class PlayerController : MonoBehaviour
             if (targetObject.name.Contains("Door"))
             {
                 targetObject.SendMessage("OnInteract");
-
             }
         }
 
