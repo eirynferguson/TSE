@@ -44,7 +44,7 @@ public class EF_MannequinControls : MonoBehaviour
         if (itemName == "Mannequin")
         {
             mannequinTurn = false;
-            var rotation = Quaternion.LookRotation(player.transform.position - 180 * transform.position);
+            var rotation = Quaternion.LookRotation(staticPos.transform.position - transform.position);
             transform.rotation = Quaternion.Slerp(transform.rotation, rotation, Time.deltaTime * 2.0f);
             mannequinTurn = true;
         }
