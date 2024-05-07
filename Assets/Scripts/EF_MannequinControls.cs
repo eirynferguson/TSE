@@ -31,7 +31,10 @@ public class EF_MannequinControls : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        mannequinLook();
+        if (mannequinTurn == true)
+        {
+            mannequinLook();
+        }        
     }
 
     void staredAt()
@@ -40,12 +43,9 @@ public class EF_MannequinControls : MonoBehaviour
         if (itemName == "Mannequin")
         {
             mannequinTurn = false;
-            while (mannequinTurn == false)
-            {
-                var rotation = Quaternion.LookRotation(staticPos.transform.position - transform.position);
-                transform.rotation = Quaternion.Slerp(transform.rotation, rotation, Time.deltaTime * 1.0f);
-            }
-
+            var rotation = Quaternion.LookRotation(staticPos.transform.position - transform.position);
+            transform.rotation = Quaternion.Slerp(transform.rotation, rotation, Time.deltaTime * 1.0f);
+            mannequinTurn = true;
         }
         else
         {
@@ -58,10 +58,7 @@ public class EF_MannequinControls : MonoBehaviour
 
     void mannequinLook()
     {
-        if (mannequinTurn == true)
-        {
-            var rotation = Quaternion.LookRotation(player.transform.position - transform.position);
-            transform.rotation = Quaternion.Slerp(transform.rotation, rotation, Time.deltaTime * 0.5f);
-        }
+        var rotation = Quaternion.LookRotation(player.transform.position - transform.position);
+        transform.rotation = Quaternion.Slerp(transform.rotation, rotation, Time.deltaTime * 0.5f);
     }
 }

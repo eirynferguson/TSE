@@ -1593,6 +1593,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 860665262}
   head: {fileID: 1829453825}
+  staticPos: {fileID: 706471912}
   itemName: Mannequin
   mannequinTurn: 1
 --- !u!1 &860665262
