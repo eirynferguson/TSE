@@ -27,6 +27,7 @@ public class PlayerController : MonoBehaviour
         myAction.Enable();
         mainCamera = GetComponentInChildren<Camera>();
         rbody.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationZ;
+        Cursor.lockState = CursorLockMode.Locked;
     }
 
     // Update is called once per frame

@@ -14,7 +14,6 @@ public class EF_CursorLable : MonoBehaviour
         player = GameObject.FindGameObjectWithTag("Player");
         playerScript = player.GetComponent<PlayerController>();
         mainCamera = playerScript.mainCamera;
-        Cursor.lockState = CursorLockMode.Locked;
     }
 
     // Update is called once per frame
