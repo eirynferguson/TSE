@@ -12,6 +12,7 @@ public class EF_MannequinControls : MonoBehaviour
     void Start()
     {
         target = GameObject.FindGameObjectWithTag("Player");
+        //get component anxiety script
         anxietyHigh = false;
     }
 
