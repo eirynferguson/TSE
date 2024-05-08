@@ -6,10 +6,18 @@ public class EF_MannequinControls : MonoBehaviour
 {
     //public GameObject Head;
     public GameObject target;
+    bool spotted;
+
+    public void seen(bool ami)
+    {
+        spotted = ami;
+    }
+
 
     // Start is called before the first frame update
     void Start()
     {
+        spotted = false;
         target = GameObject.FindGameObjectWithTag("Player");
     }
 
@@ -18,10 +26,18 @@ public class EF_MannequinControls : MonoBehaviour
     {
         //modified to only look at the player when the player is paranoid
         bool PlayerPanic = target.GetComponent<anxietymeter>().Paranoid;
+
         if (PlayerPanic)
         {
-            var rotation = Quaternion.LookRotation(target.transform.position - transform.position);
-            transform.rotation = Quaternion.Slerp(transform.rotation, rotation, Time.deltaTime * 4.0f);
+            if (!spotted)
+            {
+                var rotation = Quaternion.LookRotation(target.transform.position - transform.position);
+                transform.rotation = Quaternion.Slerp(transform.rotation, rotation, Time.deltaTime * 4.0f);
+            }
+            else
+            {
+                transform.rotation = new Quaternion(0, 0, 0, 0);
+            }
         }
         else
         {

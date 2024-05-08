@@ -10,7 +10,7 @@ public class anxietymeter : MonoBehaviour
     public double TempPlus=0;
     public bool Paranoid= false;
     public bool Vibin = false;
-    public int FinalCountdown = 15000;
+    public int FinalCountdown = 3000;
     public double Chill = 1;
 
     // Start is called before the first frame update
@@ -23,12 +23,13 @@ public class anxietymeter : MonoBehaviour
     void Update()
     {
 
-        if (AnxietyLevel >= 100)
+        if (AnxietyLevel > 90)
         {
-            FinalCountdown = FinalCountdown - 1;
-            TempAnxiety = TempAnxiety + TempPlus+ Plus;
-            TempPlus = 0;
-            Plus = 0;
+            FinalCountdown --;
+            if (Plus>0)
+            {
+                TempPlus=TempPlus+Plus;
+            }
             
         }
 
@@ -134,19 +135,21 @@ public class anxietymeter : MonoBehaviour
             AnxietyLevel= 100;
         }
 
-        if (FinalCountdown<0)
+        if (FinalCountdown==0)
         {
             AnxietyLevel = 0;
-            FinalCountdown = 10000;
-            Debug.Log("Anxiety was maxed out. this is a placeholder for a reset to bathroom");
+            TempAnxiety= 0;
+            FinalCountdown = 5000;
+            transform.position = new Vector3(8,0.5f,8);
+            Debug.Log("Calm down. Keep it together. You can do this.");
         }
         if (AnxietyLevel<65 && Chill>4)
         {
             FinalCountdown++;
         }
-        if (FinalCountdown>10000)
+        if (FinalCountdown>3000)
         {
-            FinalCountdown = 10000;
+            FinalCountdown = 3000;
         }
     }
 
@@ -155,5 +158,10 @@ public class anxietymeter : MonoBehaviour
     {
         Plus = Plus + fearlevel;
         TempPlus= TempPlus + Adrenaline;
+    }
+
+    public void Listen (bool areyou)
+    {
+        Vibin = areyou;
     }
 }
