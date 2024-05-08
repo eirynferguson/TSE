@@ -19,6 +19,8 @@ public class PlayerController : MonoBehaviour
     float xRotation;
     float yRotation;
 
+    bool anxiety = true;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -34,6 +36,7 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         cameraRay();
+        checkPoint();
     }
 
     void FixedUpdate()
@@ -84,7 +87,6 @@ public class PlayerController : MonoBehaviour
             if (targetObject.name.Contains("Door"))
             {
                 targetObject.SendMessage("OnInteract");
-
             }
         }
 
@@ -105,6 +107,15 @@ public class PlayerController : MonoBehaviour
         else
         {
             targetObject = null;
+        }
+    }
+
+    void checkPoint()
+    {
+        if (anxiety == true)
+        {
+            transform.position = new Vector3(8, 0.5f, 8);
+            anxiety = false;
         }
     }
 }
