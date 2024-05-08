@@ -84,8 +84,12 @@ public class PlayerController : MonoBehaviour
             if (targetObject.name.Contains("Door"))
             {
                 targetObject.SendMessage("OnInteract");
-
             }
+            else
+            {
+                targetObject.SendMessage("OnInteract");
+            }
+
         }
 
         Debug.Log("Item Clicked");
