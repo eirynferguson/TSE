@@ -26,8 +26,9 @@ public class anxietymeter : MonoBehaviour
         if (AnxietyLevel >= 100)
         {
             FinalCountdown = FinalCountdown - 1;
-            TempAnxiety = TempAnxiety + TempPlus;
+            TempAnxiety = TempAnxiety + TempPlus+ Plus;
             TempPlus = 0;
+            Plus = 0;
             
         }
 
@@ -41,20 +42,24 @@ public class anxietymeter : MonoBehaviour
         }
         if (Plus>0)
         {
-            Chill = Chill*0.65;
+            Chill = Chill*0.8;
             double Panic = Plus*0.5;
 
             AnxietyLevel = AnxietyLevel + Panic;
 
             Plus = Plus - 0.4;
             TempAnxiety = TempAnxiety + TempPlus;
-            TempPlus = TempPlus - 0.4;
+            TempPlus = TempPlus/3;
+            if (TempPlus < 1)
+            {
+                TempPlus = 0;
+            }
         }
         else
         {
             if (Vibin)
             {
-                Chill = Chill+ 0.0008;
+                Chill = Chill+ 0.0015;
             }
             double CalmDown =(Chill/(500+(250-(50*Chill))));
             if (TempAnxiety>0)
@@ -64,7 +69,7 @@ public class anxietymeter : MonoBehaviour
             else
             {
                 AnxietyLevel = AnxietyLevel - CalmDown;
-                Chill = Chill + 0.0008;
+                Chill = Chill + 0.001;
             }
         }
 
@@ -146,8 +151,9 @@ public class anxietymeter : MonoBehaviour
     }
 
 
-    public void Spook (double fearlevel)
+    public void Spook (double fearlevel, double Adrenaline)
     {
         Plus = Plus + fearlevel;
+        TempPlus= TempPlus + Adrenaline;
     }
 }
