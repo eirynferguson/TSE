@@ -95,6 +95,17 @@ public class PlayerController : MonoBehaviour
 
     void cameraRay()  //item interaction
     {
+        int numRay = 20;
+        float x = -5;
+
+        for (int i = 0; i < numRay; i++) 
+        {
+            // layerMask = 1 << LayerMask.NameToLayer("environment");
+            Ray rays = mainCamera.ViewportPointToRay(new Vector3(x, 0.5f, 0));
+            Debug.DrawRay(rays.origin, rays.direction * 10, Color.red);
+            x = x + 0.5f;
+        }
+
         int layerMask = 1 << LayerMask.NameToLayer("Interactable");
 
         Ray ray = mainCamera.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0));  //middle of screen
