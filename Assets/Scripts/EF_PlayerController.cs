@@ -8,8 +8,8 @@ public class PlayerController : MonoBehaviour
     public float objectSpeed = 7;
     public float mouseSensitivity = 2.0f;
     public Camera mainCamera;
-    public GameObject targetObject;
 
+    GameObject targetObject;
     Rigidbody rbody;
     InputAction myAction;
     Vector2 mousePosition;
@@ -23,36 +23,33 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         rbody = GetComponent<Rigidbody>();
-        myAction = GetComponent<PlayerInput>().actions.FindAction("Move");  //gets input actions for movement
+        myAction = GetComponent<PlayerInput>().actions.FindAction("Move");
         myAction.Enable();
         mainCamera = GetComponentInChildren<Camera>();
-        rbody.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationZ; //creates constraints for movement
-        Cursor.lockState = CursorLockMode.Locked;  //hide cursor
+        rbody.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationZ;
+        Cursor.lockState = CursorLockMode.Locked;
     }
 
     // Update is called once per frame
     void Update()
     {
-        cameraRay();  //call raycast on every update
+        cameraRay();
     }
 
     void FixedUpdate()
     {
-        //Script below created movement based off of WASD movement and first person camera view
         Vector2 InputVector = myAction.ReadValue<Vector2>();
-        if (InputVector == new Vector2(0.0f, 0.0f))  //if not moving/no player input
+        if (InputVector == new Vector2(0.0f, 0.0f))
         {
-            //freeze all positions - no movement
             rbody.constraints = RigidbodyConstraints.FreezePositionX | RigidbodyConstraints.FreezePositionZ | RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationZ;
         }
         else
         {
-            rbody.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationZ;  //freeze x and z to prevent player tipping over - only move along y axis
+            rbody.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationZ;
             transform.position += (mainCamera.transform.forward * InputVector.y * objectSpeed * Time.fixedDeltaTime) + (mainCamera.transform.right * InputVector.x * objectSpeed * Time.fixedDeltaTime);
-            transform.position = new Vector3(transform.position.x, 1.8f, transform.position.z); //change position of player whilst keeping y the same
+            transform.position = new Vector3(transform.position.x, 1.8f, transform.position.z);
         }
 
-        //Script below creates rotation by using the mouse position with the player and the camera
         float mouseX = Input.GetAxisRaw("Mouse X") * Time.fixedDeltaTime * sensX;
         float mouseY = Input.GetAxisRaw("Mouse Y") * Time.fixedDeltaTime * sensY;
 
@@ -61,8 +58,8 @@ public class PlayerController : MonoBehaviour
 
         xRotation = Mathf.Clamp(xRotation, -60f, 100f);
 
-        transform.rotation = Quaternion.Euler(0, xRotation, 0);  //player rotates
-        mainCamera.transform.rotation = Quaternion.Euler(xRotation, yRotation, 0);  //camera rotates with player
+        transform.rotation = Quaternion.Euler(0, xRotation, 0);
+        mainCamera.transform.rotation = Quaternion.Euler(xRotation, yRotation, 0);
     }
 
     public Vector2 GetMousePosition()
@@ -84,11 +81,7 @@ public class PlayerController : MonoBehaviour
     {
         if (targetObject != null) 
         { 
-            if (targetObject.name.Contains("Door"))
-            {
-                targetObject.SendMessage("OnInteract");
-
-            }
+            targetObject.SendMessage("OnInteract");
         }
 
         Debug.Log("Item Clicked");
@@ -96,18 +89,18 @@ public class PlayerController : MonoBehaviour
 
     void cameraRay()  //item interaction
     {
-        int layerMask = 1 << LayerMask.NameToLayer("Interactable");  //finds items with the layer interactable
+        int layerMask = 1 << LayerMask.NameToLayer("Interactable");
 
-        Ray ray = mainCamera.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0));  //sets ray to the middle of screen
-        Debug.DrawRay(ray.origin, ray.direction * 10, Color.red);  //draws ray within scene and is not shown in the game 
+        Ray ray = mainCamera.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0));  //middle of screen
+        Debug.DrawRay(ray.origin, ray.direction * 10, Color.red);
 
-        if(Physics.Raycast(ray, out RaycastHit hit, 10, layerMask)) //if raycast hits interactable layer
+        if(Physics.Raycast(ray, out RaycastHit hit, 10, layerMask))
         {
-            targetObject = GameObject.Find(hit.collider.transform.gameObject.name);  //targetobject becomes the gameobject the raycast has hit
+            targetObject = GameObject.Find(hit.collider.transform.gameObject.name);
         }
         else
         {
-            targetObject = null; //else targetobject remains null
+            targetObject = null;
         }
     }
 }
