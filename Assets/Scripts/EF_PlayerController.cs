@@ -8,8 +8,8 @@ public class PlayerController : MonoBehaviour
     public float objectSpeed = 7;
     public float mouseSensitivity = 2.0f;
     public Camera mainCamera;
+    public GameObject targetObject;
 
-    GameObject targetObject;
     Rigidbody rbody;
     InputAction myAction;
     Vector2 mousePosition;

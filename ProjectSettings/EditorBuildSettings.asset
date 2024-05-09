@@ -9,6 +9,6 @@ EditorBuildSettings:
     path: Assets/Scenes/MainMenu.unity
     guid: 4450ab7f6dccf444e885c8ffedd5d10a
   - enabled: 1
-    path: Assets/Scenes/eiryn_scene.unity
-    guid: c85485cf0bd4df74fbced8f07b21682e
+    path: Assets/Scenes/feartest.unity
+    guid: 903caa00f1f645b4388d73f90e4f4a6d
   m_configObjects: {}
