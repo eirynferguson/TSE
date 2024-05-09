@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class EF_MannequinControls : MonoBehaviour
 {
-    //public GameObject Head;
+    bool spotted = false;
     public GameObject target;
 
     // Start is called before the first frame update
@@ -20,8 +20,15 @@ public class EF_MannequinControls : MonoBehaviour
         bool PlayerPanic = target.GetComponent<anxietymeter>().Paranoid;
         if (PlayerPanic)
         {
-            var rotation = Quaternion.LookRotation(target.transform.position - transform.position);  //finds position of the player
-            transform.rotation = Quaternion.Slerp(transform.rotation, rotation, Time.deltaTime * 4.0f);  //rotates the mannequin
+            if (!spotted)
+            {
+                var rotation = Quaternion.LookRotation(target.transform.position - transform.position);  //finds position of the player
+                transform.rotation = Quaternion.Slerp(transform.rotation, rotation, Time.deltaTime * 4.0f);  //rotates the mannequin
+            }
+            else
+            {
+                transform.rotation = new Quaternion(0, 0, 0, 0);
+            }
         }
         else
         {
@@ -30,4 +37,9 @@ public class EF_MannequinControls : MonoBehaviour
         }
     }
 
+
+    public void seen(bool ami)
+    {
+        spotted = ami;
+    }
 }
