@@ -20,8 +20,8 @@ public class EF_MannequinControls : MonoBehaviour
         bool PlayerPanic = target.GetComponent<anxietymeter>().Paranoid;
         if (PlayerPanic)
         {
-            var rotation = Quaternion.LookRotation(target.transform.position - transform.position);
-            transform.rotation = Quaternion.Slerp(transform.rotation, rotation, Time.deltaTime * 4.0f);
+            var rotation = Quaternion.LookRotation(target.transform.position - transform.position);  //finds position of the player
+            transform.rotation = Quaternion.Slerp(transform.rotation, rotation, Time.deltaTime * 4.0f);  //rotates the mannequin
         }
         else
         {
