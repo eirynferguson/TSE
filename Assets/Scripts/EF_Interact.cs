@@ -13,14 +13,14 @@ public class Interact : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        if(GameObject.Find("Player") != null)
+        if(GameObject.Find("Player") != null)  //if player gameobject is not null
         {
-            player = GameObject.Find("Player");
-            playerScript = player.GetComponent<PlayerController>();
+            player = GameObject.FindGameObjectWithTag("Player");  //find game object with the player tag 
+            playerScript = player.GetComponent<PlayerController>();   //call player controller script
         }
 
-        itemName = gameObject.name;
-        gameObject.layer = LayerMask.NameToLayer("Interactable");
+        itemName = gameObject.name;  //name of the gameobject
+        gameObject.layer = LayerMask.NameToLayer("Interactable");  //make sure layer is interactable
     }
 
     // Update is called once per frame
@@ -31,7 +31,7 @@ public class Interact : MonoBehaviour
 
     public void RemoveObject()
     {
-        this.gameObject.SetActive(false);
+        this.gameObject.SetActive(false);  //remove gameobject from scene
     }
 
     void OnInteract()
@@ -39,7 +39,7 @@ public class Interact : MonoBehaviour
         Debug.Log("Interact");
         if(name == "Door")
         {
-            RemoveObject();
+            RemoveObject();  //if the object interacted with is a door - remove it. it is the only game object that needs removing
         }
     }
 }
