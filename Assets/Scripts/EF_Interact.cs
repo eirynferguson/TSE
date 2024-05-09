@@ -41,5 +41,9 @@ public class Interact : MonoBehaviour
         {
             RemoveObject();  //if the object interacted with is a door - remove it. it is the only game object that needs removing
         }
+        else if (name == "Door1")
+        {
+            RemoveObject();
+        }
     }
 }

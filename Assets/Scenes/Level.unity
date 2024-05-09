@@ -354,7 +354,7 @@ GameObject:
   - component: {fileID: 513199316}
   - component: {fileID: 513199315}
   m_Layer: 3
-  m_Name: Door
+  m_Name: Door1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -373,7 +373,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 1702513189}
-  itemName: Door
+  itemName: Door1
 --- !u!65 &513199316
 BoxCollider:
   m_ObjectHideFlags: 0
