@@ -25,13 +25,13 @@ public class PauseScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape)) 
+        if (Input.GetKeyDown(KeyCode.Escape))   //when escape is pressed - if game is already paused - resume game
         {
             if (isPaused)
             {
                 ResumeGame();
             }
-            else
+            else    //else if the game is not paused - then call pause
             {
                 PauseGame();
             }
@@ -42,37 +42,37 @@ public class PauseScript : MonoBehaviour
     {
         Debug.Log("Paused");
 
-        Cursor.lockState = CursorLockMode.None;
+        Cursor.lockState = CursorLockMode.None;  //shows cursor
 
-        buttons.SetActive(true);
-        pauseUI.SetActive(true);
-        controlButton.SetActive(false);
+        buttons.SetActive(true);  //shows pause buttons
+        pauseUI.SetActive(true);  //shows pause UI
+        controlButton.SetActive(false);   //hides controls instructions
         Time.timeScale = 0f;
-        controlsShown = false;
-        isPaused = true;
+        controlsShown = false;  //controls are not shown so set to false
+        isPaused = true;    //game is paused so set to true
     }
 
     public void ResumeGame()
     {
         Debug.Log("Unpaused");
 
-        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.lockState = CursorLockMode.Locked;  //hides cursor
 
-        buttons.SetActive(false);
-        pauseUI.SetActive(false);
+        buttons.SetActive(false);  //hide pause buttons
+        pauseUI.SetActive(false);  //hide pause UI
         Time.timeScale = 1f;
-        isPaused = false;
+        isPaused = false;   //no longer paused so set to false
     }
 
     public void controls()
     {
-        controlButton.SetActive(true);
+        controlButton.SetActive(true);  //show controls UI
         Time.timeScale = 0f;
-        controlsShown = true;
+        controlsShown = true;  //controls shown so set to true
     }
 
     public void mainMenu()
     {
-        SceneManager.LoadScene("MainMenu");
+        SceneManager.LoadScene("MainMenu");  //use scenechanger script to reload main menu scene
     }
 }

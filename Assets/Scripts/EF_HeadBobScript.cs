@@ -17,12 +17,12 @@ public class HeadBobScript : MonoBehaviour
     {
         if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.D))
         {
-            camAnim.ResetTrigger("idle");
+            camAnim.ResetTrigger("idle");  //when player is walking, set idle animation to reset and start walking animation
             camAnim.SetTrigger("walk");
         }
         else
         {
-            camAnim.ResetTrigger("walk");
+            camAnim.ResetTrigger("walk"); //when player is not walking, set walk animation to reset and start idle animation
             camAnim.SetTrigger("idle");
         }
     }

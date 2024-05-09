@@ -17,14 +17,14 @@ public class SceneChanger : MonoBehaviour
         
     }
 
-    public void ChangeScene(string sceneName)
+    public void ChangeScene(string sceneName)  //function used to switch between scenes
     {
-        SceneManager.LoadScene(sceneName);
+        SceneManager.LoadScene(sceneName);  //changes scene by the name entered in unity inspector
     }
 
     public void Exit()
     {
-        Application.Quit();
+        Application.Quit();  //closes the application
         Debug.Log("Quit");
     }
 }
