@@ -12,11 +12,13 @@ public class anxietymeter : MonoBehaviour
     public bool Vibin = false;
     public int FinalCountdown = 3000;
     public double Chill = 1;
+    public Transform spawnPoint;
+    public Transform player;
 
     // Start is called before the first frame update
     void Start()
     {
-
+        
     }
 
     // Update is called once per frame
@@ -140,7 +142,7 @@ public class anxietymeter : MonoBehaviour
             AnxietyLevel = 0;
             TempAnxiety= 0;
             FinalCountdown = 5000;
-            transform.position = new Vector3(8,0.5f,8);
+            player.position = spawnPoint.position;
             Debug.Log("Calm down. Keep it together. You can do this.");
         }
         if (AnxietyLevel<65 && Chill>4)
